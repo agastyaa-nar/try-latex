@@ -1,0 +1,132 @@
+\documentclass[a4paper, 12pt]{article}
+\usepackage{color}
+\usepackage{scalerel}
+\usepackage{tikz}
+\usepackage{geometry}
+
+\geometry{
+		total = {160mm, 237mm},
+		left = 25mm,
+		right = 35mm,
+		top = 30mm,
+		bottom = 30mm,
+	}
+
+\usepackage{tabularx}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{multicol}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{enumitem}
+\usepackage{lastpage}
+\usepackage{transparent}
+\usepackage{cancel}
+\usepackage{setspace}
+\onehalfspacing
+
+\renewcommand{\headrulewidth}{0pt}
+\newcommand{\ans}{\textbf{Jawab}:}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+
+
+\begin{document}
+\pagenumbering{gobble}
+    \begin{tabular}{|lcl|}
+     \hline
+     Nama&:&Dhanar Agastya Rakalangi\\
+     NRP&:&5002221075\\
+     \hline
+    \end{tabular}
+
+    \begin{enumerate}
+       \item Misal $A:=[0,\infty)$, perhatikan barisan fungsi $(f_n(x))$ yang didefinisikan dengan $$f_n(x):=nx/(1+nx^2)$$ untuk $x\in A$
+        \begin{enumerate}
+            \item Tunjukkan bahwa $(f_n)$ terbatas pada $A$ untuk semua $n\in\N$.\\
+            \ans \\
+            Perhatikan $f_n(x)=\dfrac{nx}{1+nx^2}$ dengan $x \in A$, maka $x > 0 \ , nx \geq 0$ dan $1+nx^2 \geq 1$ . Selanjutnya dengan definisi, terdapat $M>0$ sedemikian hingga $|f_n| \leq M$, maka $f_n(x) \leq \dfrac{nx}{1}$ .
+            Dengan demikian, $f_n(x)$ terbatas pada $A$ untuk semua $n\in\N$.
+
+             \item Tunjukkan bahwa $(f_n)$ konvergen titik-demi-titik ke suatu fungsi $f$, tetapi tidak terbatas.\\
+             \ans
+            \begin{itemize}
+                \item Untuk $x=0$, kita punya $f_n(0)=0$ untuk setiap $n\in\N$. Sehingga $f_n(x)$ konvergen ke $0$.
+                \item Untuk $x>0$, kita punya $f_n(x)=\dfrac{nx}{1+nx^2}=\dfrac{1}{1/nx+x}\implies\dfrac{1}{x}$. 
+                Sehingga $f_n(x)$ konvergen ke $1/x$.
+            \end{itemize}
+            Jadi, dapat disimpulkan $(f_n)$ konvergen titik-demi-titik ke suatu fungsi $f$ yaitu 
+            $$f(x)=\begin{cases}0&\text{jika }x=0\\1/x&\text{jika }x>0\end{cases}$$.\\
+            Selanjutnya akan ditunjukkan bahwa $f$ tidak terbatas, kita gunakan kontradiksi. Asumsikan $f$ terbatas, maka ada $M>0$ sehingga $|f(x)|\leq M$ untuk setiap $x\in A$. Kita ambil $x=\dfrac{1}{(3M)}$, maka $f\left(\dfrac{1}{(3M)}\right)=3M$ , jelas ini kontradiksi dengan asumsi bahwa $f$ terbatas.\\\\
+            $\therefore$ $f$ tidak terbatas.\\
+
+            \newpage
+            \item Apakah $(f_n)$ konvergen seragam pada $A$? Jelaskan!\\
+            \ans\\
+             \textit{Recall} \textbf{Teorema} : Misalkan $f_n(x)$ adalah sebuah barisan fungsi kontinu pada suatu himpunan $A \subseteq \R$. Jika $(f_n)$ konvergen seragam pada $A$ ke fungsi $f : A \to \R$, maka $f$ kontinu pada $A$.\\
+                
+            Jelas bahwa $f_n(x)$ kontinu untuk $n\in\N$, hal ini diperoleh dari $g_n(x)=nx$ dan 
+            $h_n(x)=1+nx^2\ne 0$ dimana kedua fungsi tersebut adalah fungsi polinom yang jelas kontinu pada $A\subseteq \R$, sehingga 
+            $f_n(x)=g_n(x)/h_n(x)$ kontinu pada $A$ juga.
+        \end{enumerate}
+
+        \item Diberikan deret fungsi $\sum f_n$ dengan $f_n(x)=\sin(\frac{x}{n^2})$. Apakah deret tersebut konvergen seragam pada $[0,\pi]$? Jelaskan! (Petunjuk: Gunakan Weierstrass M-Test)\\
+        \ans\\
+        \textit{Recall} \textbf{Teorema} (Weierstrass M-Test) : Misalkan $f_n : A \to \R$ adalah fungsi pada himpunan $A \subseteq \R$. Jika ada barisan 
+        bilangan real positif $M_n$ sehingga $|f_n(x)| \leq M_n$ untuk setiap $x \in A$ dan $n \in \N$, dan deret $\sum M_n$ konvergen, maka deret $\sum f_n$ konvergen seragam pada $A$.\\\\
+        Perhatikan ketaksamaan $\sin(\frac{x}{n^2})\leq \frac{x}{n^2}$ untuk $x\in[0,\pi]\subseteq\R$ dan $n\in\N$.\\
+        Jika kita definisikan $f_n(x)=\sin\left(\frac{x}{n^2}\right)$ dan $M_n(x)=\frac{x}{n^2}$, maka \[|f_n(x)|\leq M_n(x)\quad\text{untuk }x\in[0,\pi]\text{ dan }n\in\N.\]
+        Selanjutnya perhatikan deret $\sum M_n=\sum\frac{x}{n^2}$. Dengan menggunakan sifat notasi sigma kita dapatkan $\sum\frac{x}{n^2}=x\sum\frac{1}{n^2}$. Karena deret $\sum\frac{1}{n^2}$ konvergen dengan nilai konvergennya adalah $\frac{\pi^2}{6}$ (Deret Basel), maka deret $\sum M_n$ konvergen pada $[0,\pi]$.
+        Sehingga, dari teorema kita peroleh bahwa deret $\sum f_n$ konvergen seragam pada $[0,\pi]$.
+
+    
+       \item Tunjukkan bahwa $A=\{1/n\,:\,n\in \N\}$ bukan himpunan tertutup.\\
+       \ans\\
+       \textit{Recall} \textbf{Teorema} : Himpunan $A\subseteq\R$ adalah tertutup jika dan hanya jika $A$ mengandung semua titik klusternya.\\\\
+       \textit{Recall} \textbf{Definisi titik klaster} : Misalkan $A \in \R$.  Titik $c \in \R $ dikatakan sebagai titik klaster dari $A$ apabila untuk semua $\varepsilon > 0 $ berlaku $(V_\varepsilon(c) \setminus \{c\}) \cap A \neq \emptyset $
+
+       \newpage
+       \textit{Recall} \textbf{Sifat Archimedean} : Jika $t> 0$, maka ada $n_t \in \N$ sedemikian hingga  $0 < \frac{1}{n_t} < t$ .\\\\
+       Pilih sebarang titik dan cek apakah merupakan titik kluster dari A. Untuk titik 0 , Ambil sebarang $\varepsilon > 0$. Perhatikan bahwa $V_\varepsilon(0)\setminus \{0\} = (-\varepsilon, 0)\cup(0, \varepsilon)$. \textbf{Sifat Archimedean} memastikan bahwa sebarang $ \varepsilon > 0 $ ada $n_\varepsilon \in \N $ sedemikian hingga   $0 < \frac{1}{n_\varepsilon} < \varepsilon$ . Dengan demikian , ($V_\varepsilon(0)\setminus \{0\}) \cap A \neq \emptyset $. Jadi , 0 adalah titik klaster dari A. \\
+       Namun $0\notin A$, sehingga $A$ tidak mengandung semua titik klusternya. Jadi, $A$ bukan himpunan tertutup.
+
+        \item Tunjukkan bahwa $(-2,1)$ tidak kompak di $\R$.\\
+        \ans\\
+        \textit{Recall} \textbf{Teorema} (Heine-Borel) : Himpunan $A\subseteq\R$ adalah kompak jika dan hanya jika $A$ tertutup dan terbatas.\\
+        
+        \textit{Recall} \textbf{Teorema} : Himpunan $A\subseteq\R$ adalah tertutup jika dan hanya jika $A$ mengandung semua titik klusternya.\\
+        
+        Akan ditunjukkan $(-2,1)$ tidak tertutup, dengan membuktikan ada titik klaster yang di luar $(-2,1)$ .  Ambil $x=1\notin(-2,1)$, maka untuk setiap $\varepsilon>0$ berapapun mengakibatkan $V_\varepsilon(1)\cap(-2,1)\ne\emptyset$. Jadi $(-2,1)$ tidak tertutup. Sehingga dengan Teorema (Heine-Borel) didapat $(-2,1)$ tidak kompak di $\R$
+
+        \item Diberikan fungsi $d:\R^2\times\R^2\to\R$ yang didefinisikan oleh
+    \[d\left(\begin{bmatrix}x_1\\y_1\end{bmatrix},\begin{bmatrix}x_2\\y_2\end{bmatrix}\right):=
+    |x_1-x_2|+|y_1-y_2|,\quad\text{untuk }x_1,x_2,y_1,y_2\in\R.\]
+    Buktikan bahwa pasangan $(\R^2,d)$ adalah ruang metrik.\\
+    \ans\\
+    Misalkan $v_1=\begin{bmatrix}x_1\\y_1\end{bmatrix}$, $v_2=\begin{bmatrix}x_2\\y_2\end{bmatrix}\in \R^2$.
+    \begin{enumerate}
+        \item $d(v_1,v_2)=|x_1-x_2|+|y_1-y_2|$. Karena nilai mutlak selalu positif, maka 
+        $|x_1-x_2|\geq 0$ dan $|y_1-y_2|\geq 0$. Sehingga $|x_1-x_2|+|y_1-y_2|\geq 0$. (\textbf{kepositifan})
+
+        \newpage
+        \item Dari kiri\\
+        $\implies$ $d(v_1,v_2)=0\iff |x_1-x_2|+|y_1-y_2|=0\iff |x_1-x_2|=0 \text{ dan } |y_1-y_2|=0 \iff x_1=x_2\text{ dan }y_1=y_2 \iff v_1=v_2$.\\
+        Dari kanan\\
+        $\impliedby$ $v_1=v_2 \iff x_1=x_2\text{ dan }y_1=y_2 \implies d(v_1,v_2)=|x_1-x_2|+|y_1-y_2|=|x_1-x_1|+|y_1-y_1|=0$.
+        (\textbf{definit})
+        \item $d(v_1,v_2)=|x_1-x_2|+|y_1-y_2|=|x_2-x_1|+|y_2-y_1|=d(v_2,v_1)$. (\textbf{simetri})
+        \item Misalkan $v_3=\begin{bmatrix}x_3\\y_3\end{bmatrix}\in \R^2$.
+        \begin{flalign*}
+            d(v_1,v_2)&=|x_1-x_2|+|y_1-y_2|&\\
+            &=|(x_1-x_3)+(x_3-x_2)|+|(y_1-y_3)+(y_3-y_2)|&\\
+            &\leq |x_1-x_3|+|x_3-x_2|+|y_1-y_3|+|y_3-y_2|&\\
+            &=d(v_1,v_3)+d(v_3,v_2)\quad\text{(\textbf{ketaksamaan segitiga})}
+        \end{flalign*}
+    \end{enumerate}
+    Karena terpenuhi semua sifat, Maka $(\R^2,d)$ adalah ruang metrik.
+    \end{enumerate}
+
+    
+\end{document}
